@@ -1,5 +1,7 @@
 # Linker set wrapper for cmocka unit test framework
 
+[![Build Status](https://travis-ci.org/kylemanna/cmocka-init.svg)](https://travis-ci.org/kylemanna/cmocka-init)
+
 Wrapper to simplify the use of *cmocka* by using linker sets (aka linker sections with function pointers).  Linker set header that makes the magic happen is form a random branch related to the chromium project.
 
 See `test_simple.c` and `test_more.c` for examples of how to easily add *cmocka* tests.
