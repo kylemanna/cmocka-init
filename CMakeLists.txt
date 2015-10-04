@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 2.8)
 
 project(cmocka-init)
 
@@ -12,7 +12,8 @@ file(GLOB SRC *.c)
 add_executable(simple_init ${SRC})
 
 # Include cmocka headers and linkerset headers
-target_include_directories(simple_init PRIVATE ${CMOCKA_INCLUDE_DIR} include)
+#target_include_directories(simple_init PRIVATE ${CMOCKA_INCLUDE_DIR} include)
+include_directories(${CMOCKA_INCLUDE_DIR} include)
 
 # Link to cmocka
 target_link_libraries(simple_init cmocka)

@@ -8,8 +8,11 @@
 include(ExternalProject)
 
 ExternalProject_Add(cmocka_ep
-    URL https://git.cryptomilk.org/projects/cmocka.git/snapshot/cmocka-1.0.1.tar.xz
-    URL_HASH SHA256=b3831d1ced5423890fcca347b40fbeda5b0903fc0296596abf0f68013c9eafdc
+    # Old versions of cmake 2.8.7 are crippled:
+    URL https://git.cryptomilk.org/projects/cmocka.git/snapshot/cmocka-1.0.1.tar.gz
+    URL_MD5 79b19768d7a9a7fcc119e0b393755c39
+    #URL https://git.cryptomilk.org/projects/cmocka.git/snapshot/cmocka-1.0.1.tar.xz
+    #URL_HASH SHA256=b3831d1ced5423890fcca347b40fbeda5b0903fc0296596abf0f68013c9eafdc
     #GIT_REPOSITORY git://git.cryptomilk.org/projects/cmocka.git
     #GIT_TAG cmocka-1.0.1
     # Use git submodule to fetch source manually and in-tree, store in SOURCE_DIR
