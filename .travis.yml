@@ -4,8 +4,12 @@ compiler:
     - clang
     - gcc
 
+env:
+    - C_FLAGS=
+    - C_FLAGS=-fsanitize=address
+
 script:
     - mkdir build && cd build
-    - cmake ..
-    - make
+    - cmake -DCMAKE_C_FLAGS=${C_FLAGS} ..
+    - make VERBOSE=1
     - ctest -V
