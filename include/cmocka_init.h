@@ -14,16 +14,10 @@
 #include <setjmp.h>
 #include <cmocka.h>
 
-#include "linkerset.h"
-
 /*
  * Usage: TEST(name) { ... }
  */
-#define TEST(n) static void n(void** state); \
-        static cmocka_init_t test_##n = cmocka_unit_test(n); \
-        LINKERSET_ADD_ITEM(cmocka_init, test_##n); \
-        static void n(void** state)
-
-typedef struct CMUnitTest cmocka_init_t;
-
-LINKERSET_DECLARE(cmocka_init);
+#define TEST(n) void n(void** state); \
+        struct CMUnitTest test_##n \
+        __attribute__((section("cmocka_init"),used)) = cmocka_unit_test(n); \
+        void n(void** state)
